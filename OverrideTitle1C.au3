@@ -45,17 +45,6 @@ Func _Main()
 
 			_SetNewTitle($hActWnd, $sIBName)
 
-;~ 			If $sMode = "DESIGNER" Then
-;~ 				If BitAND(_WinAPI_GetAsyncKeyState($VK_MBUTTON), $iBitMask) Then
-;~ 					;открыть список функций
-;~ 					Send("{CTRLDOWN}", 0)
-;~ 					Send("{ALTDOWN}", 0)
-;~ 					Send("{p}", 0)
-;~ 					Send("{ALTUP}", 0)
-;~ 					Send("{CTRLUP}", 0)
-;~ 					Sleep(200)
-;~ 				EndIf
-;~ 			EndIf
 		Else
 			$hActWnd1C = Null
 			WinWaitNotActive($hActWnd)
@@ -64,12 +53,11 @@ Func _Main()
 EndFunc   ;==>_Main
 
 Func _GetModeFromCmdLine($sCmdLine)
-	If StringInStr($sCmdLine, "DESIGNER") = 1 Then
-		Return "DESIGNER"
-;~ 	ElseIf StringInStr($sCmdLine, "ENTERPRISE") = 1 Then
-;~ 		Return "ENTERPRISE"
-	EndIf
+
+	If StringInStr($sCmdLine, "DESIGNER") = 1 Then Return "DESIGNER"
+
 	Return "ENTERPRISE"
+
 EndFunc   ;==>_GetModeFromCmdLine
 
 Func _GetIBNameFromCmdLine($sCmdLine)
